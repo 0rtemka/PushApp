@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">PushApp</string>
+
+    <string name="activity_title">Активность</string>
+
+    <plurals name="pushups_count">
+        <item quantity="one">отжимание</item>
+        <item quantity="few">отжимания</item>
+        <item quantity="many">отжиманий</item>
+        <item quantity="other">отжиманий</item>
+    </plurals>
+
+    <string name="monday_short">Пн</string>
+    <string name="tuesday_short">Вт</string>
+    <string name="wednesday_short">Ср</string>
+    <string name="thursday_short">Чт</string>
+    <string name="friday_short">Пт</string>
+    <string name="saturday_short">Сб</string>
+    <string name="sunday_short">Вс</string>
+
+</resources>
