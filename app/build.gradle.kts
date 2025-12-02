@@ -66,6 +66,7 @@ dependencies {
     implementation(libs.coil.gif)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.lottie.compose)
     ksp(libs.androidx.room.compiler)
     implementation(libs.dagger.hilt)
     ksp(libs.dagger.hilt.compiler)

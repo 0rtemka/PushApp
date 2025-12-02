@@ -1,4 +1,4 @@
-package com.example.pushapp.feature.profile.ui.components
+package com.example.pushapp.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -21,7 +21,7 @@ import com.example.pushapp.R
 import com.example.pushapp.ui.theme.PushAppTheme
 
 @Composable
-fun UserInfo() {
+fun UserAvatar(praise: Boolean = false) {
     val context = LocalContext.current
     Box(
         modifier = Modifier
@@ -37,7 +37,7 @@ fun UserInfo() {
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(context)
-                    .data(R.drawable.character_0_1)
+                    .data(if (praise) R.drawable.character_0_2 else R.drawable.character_0_1)
                     .build(),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
@@ -56,16 +56,16 @@ fun UserInfo() {
 
 @Composable
 @Preview(showBackground = true, apiLevel = 34, name = "Light Model")
-fun UserInfoLightModePreview() {
+fun UserAvatarLightModePreview() {
     PushAppTheme(darkTheme = false, dynamicColor = false) {
-        UserInfo()
+        UserAvatar()
     }
 }
 
 @Composable
 @Preview(showBackground = true, apiLevel = 34, name = "Dark Model")
-fun UserInfoDarkModePreview() {
+fun UserAvatarDarkModePreview() {
     PushAppTheme(darkTheme = true, dynamicColor = false) {
-        UserInfo()
+        UserAvatar()
     }
 }

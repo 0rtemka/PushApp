@@ -83,7 +83,7 @@ fun SettingItem(icon: Painter, label: String) {
                     painter = painterResource(R.drawable.short_arrow_icon),
                     contentDescription = "Open",
                     modifier = Modifier.size(16.dp),
-                    tint = MaterialTheme.colorScheme.onSurface.copy(0.37f)
+                    tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.37f)
                 )
             }
         }

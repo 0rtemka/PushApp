@@ -63,11 +63,12 @@ fun Intensity(viewModel: TrainingPreparationViewModel = viewModel()) {
                         contentColor = MaterialTheme.colorScheme.onSurface,
                     ),
                     shape = RoundedCornerShape(4.dp),
+                    modifier = Modifier.size(44.dp)
                 ) {
                     Icon(
-                        painter = painterResource(R.drawable.minus_outlined_24),
+                        painter = painterResource(R.drawable.minus),
                         contentDescription = null,
-                        modifier = Modifier.size(48.dp)
+                        modifier = Modifier.size(24.dp)
                     )
                 }
                 Icon(
@@ -97,11 +98,12 @@ fun Intensity(viewModel: TrainingPreparationViewModel = viewModel()) {
                         contentColor = MaterialTheme.colorScheme.onSurface,
                     ),
                     shape = RoundedCornerShape(4.dp),
+                    modifier = Modifier.size(44.dp)
                 ) {
                     Icon(
-                        painter = painterResource(R.drawable.outline_add_24),
+                        painter = painterResource(R.drawable.plus),
                         contentDescription = null,
-                        modifier = Modifier.size(48.dp)
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             }

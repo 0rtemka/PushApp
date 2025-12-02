@@ -11,9 +11,9 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(
     private val userDao: UserDao
 ) : UserRepository {
-    override fun getUserById(id: Int): Flow<User?> {
-        return userDao.getUserById(id).map { entity ->
+    override fun getCurrentUser(): Flow<User?> {
+        return userDao.getCurrentUser().map { entity ->
             entity?.toDomain()
-        }
+        };
     }
 }

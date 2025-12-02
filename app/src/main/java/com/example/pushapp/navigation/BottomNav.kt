@@ -21,8 +21,23 @@ fun BottomNavBar(navController: NavController, items: List<Screen>) {
 
         items.forEach { screen ->
             NavigationBarItem(
-                icon = { Icon(painterResource(screen.iconRes), contentDescription = screen.title) },
-                label = { Text(text = screen.title) },
+                icon = {
+                    screen.iconRes?.let { res ->
+                        Icon(
+                            painter = painterResource(res),
+                            contentDescription = screen.title
+                        )
+                    }
+                },
+                label = {
+                    (screen.title?.let { title ->
+                        Text(
+                            text = title,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.87f)
+                        )
+                    })
+                },
                 selected = currentRoute == screen.route,
                 onClick = {
                     if (currentRoute != screen.route) {

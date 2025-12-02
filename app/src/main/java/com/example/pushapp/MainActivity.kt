@@ -9,8 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pushapp.feature.main.ui.MainScreen
 import com.example.pushapp.feature.profile.ui.ProfileScreen
@@ -21,7 +23,7 @@ import com.example.pushapp.ui.theme.PushAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 val routes = listOf(
-    Screen.Home, Screen.Training, Screen.Stats, Screen.Profile
+    Screen.Home, Screen.TrainingPreparation, Screen.Stats, Screen.Profile
 )
 
 @AndroidEntryPoint
@@ -32,19 +34,22 @@ class MainActivity : ComponentActivity() {
         setContent {
             PushAppTheme(dynamicColor = false) {
                 val navController = rememberNavController()
+                val navBackStackEntry by navController.currentBackStackEntryAsState()
+                val currentRoute = navBackStackEntry?.destination?.route
 
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
-                        BottomNavBar(
-                            navController = navController,
-                            items = routes
-                        )
+                        if (currentRoute !== Screen.Training.route)
+                            BottomNavBar(
+                                navController = navController,
+                                items = routes
+                            )
                     }, containerColor = MaterialTheme.colorScheme.background
                 ) { innerPadding ->
                     AppNavGraph(
                         navController = navController,
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(bottom = innerPadding.calculateBottomPadding())
                     )
                 }
             }

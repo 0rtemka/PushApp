@@ -1,16 +1,14 @@
 package com.example.pushapp.feature.main.ui
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -21,23 +19,22 @@ import com.example.pushapp.R
 import com.example.pushapp.feature.main.MainViewModel
 import com.example.pushapp.feature.main.ui.components.ActivityCalendar
 import com.example.pushapp.feature.main.ui.components.PushUpsCounter
-import com.example.pushapp.feature.main.ui.components.StartButton
 import com.example.pushapp.feature.main.ui.components.UserInfo
+import com.example.pushapp.ui.components.StartTrainingButton
 import com.example.pushapp.ui.theme.PushAppTheme
 
 @Composable
 fun MainScreen(
+    modifier: Modifier = Modifier,
     mainViewModel: MainViewModel = hiltViewModel(),
-    modifier: Modifier = Modifier
+    onStartTrainingClick: () -> Unit = {},
 ) {
-    val user by mainViewModel.user.collectAsState()
-
-    Box(
-        modifier = modifier
-            .padding(16.dp)
-            .fillMaxSize()
-    ) {
+    Scaffold() { innerPadding ->
         Column(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(top = innerPadding.calculateTopPadding())
+                .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             Row(
@@ -72,10 +69,9 @@ fun MainScreen(
             Spacer(modifier = Modifier.weight(1f))
             UserInfo()
             Spacer(modifier = Modifier.weight(1f))
-            StartButton(
+            StartTrainingButton(
                 label = "Начать",
-                helperLabel = "ежедневная тренировка",
-                timeLabel = "15 минут"
+                onClick = onStartTrainingClick
             )
         }
     }

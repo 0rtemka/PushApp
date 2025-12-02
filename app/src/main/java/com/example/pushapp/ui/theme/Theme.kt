@@ -12,18 +12,22 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = PrimaryDark,
+    secondary = SecondaryDark,
     background = BackgroundDark,
     surface = SurfaceDark,
     onPrimary = OnPrimaryDark,
+    onSecondary = OnSecondaryDark,
     onBackground = OnBackgroundDark,
     onSurface = OnSurfaceDark,
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Primary,
+    secondary = Secondary,
     background = Background,
     surface = Surface,
     onPrimary = OnPrimary,
+    onSecondary = OnSecondary,
     onBackground = OnBackground,
     onSurface = OnSurface,
 )

@@ -22,7 +22,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 //    val uiState: StateFlow<UserUiState> = TODO()
 
-    val user: StateFlow<User?> = userRepository.getUserById(1)
+    val user: StateFlow<User?> = userRepository.getCurrentUser()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), null)
 }
 
