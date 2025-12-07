@@ -28,6 +28,7 @@ fun MainScreen(
     modifier: Modifier = Modifier,
     mainViewModel: MainViewModel = hiltViewModel(),
     onStartTrainingClick: () -> Unit = {},
+    onCalendarClick: () -> Unit = {},
 ) {
     Scaffold() { innerPadding ->
         Column(
@@ -65,7 +66,7 @@ fun MainScreen(
                     Modifier.weight(1f)
                 )
             }
-            ActivityCalendar()
+            ActivityCalendar(onClick = onCalendarClick)
             Spacer(modifier = Modifier.weight(1f))
             UserInfo()
             Spacer(modifier = Modifier.weight(1f))

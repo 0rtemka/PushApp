@@ -23,7 +23,7 @@ import com.example.pushapp.ui.theme.PushAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 val routes = listOf(
-    Screen.Home, Screen.TrainingPreparation, Screen.Stats, Screen.Profile
+    Screen.Home, Screen.TrainingPreparation, Screen.Calendar, Screen.Stats, Screen.Profile
 )
 
 @AndroidEntryPoint

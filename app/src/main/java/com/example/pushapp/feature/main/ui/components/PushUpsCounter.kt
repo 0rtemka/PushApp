@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.pushapp.R
+import com.example.pushapp.ui.theme.Lora
 import com.example.pushapp.ui.theme.PushAppTheme
 
 @Composable
@@ -56,13 +57,14 @@ fun PushUpsCounter(
             )
             Text(
                 text = value,
-                style = MaterialTheme.typography.titleSmall,
+                style = MaterialTheme.typography.headlineSmall,
+                fontFamily = Lora,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.87f),
                 textAlign = TextAlign.Center,
             )
             Text(
                 text = title,
-                style = MaterialTheme.typography.labelSmall,
+                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
                 textAlign = TextAlign.Center,
             )

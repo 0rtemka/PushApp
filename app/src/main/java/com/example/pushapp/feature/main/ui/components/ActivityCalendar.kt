@@ -27,7 +27,9 @@ import com.example.pushapp.ui.theme.PixelifySans
 import com.example.pushapp.ui.theme.PushAppTheme
 
 @Composable
-fun ActivityCalendar() {
+fun ActivityCalendar(
+    onClick: () -> Unit = {},
+) {
     val daysOfWeek = listOf(
         stringResource(R.string.monday_short),
         stringResource(R.string.tuesday_short),
@@ -43,10 +45,13 @@ fun ActivityCalendar() {
             MaterialTheme.colorScheme.surface,
             MaterialTheme.colorScheme.onSurface
         ),
-        shape = RoundedCornerShape(6.dp),
+        shape = RoundedCornerShape(12.dp),
+        onClick = onClick
     ) {
         Column(
-            modifier = Modifier.padding(12.dp),
+            modifier = Modifier
+                .padding(18.dp)
+                .padding(bottom = 20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Text(
@@ -78,7 +83,7 @@ fun ActivityCalendar() {
                     repeat(7) { index ->
                         Box(
                             modifier = Modifier
-                                .size(if (index == 2) 18.dp else 14.dp)
+                                .size(if (index == 2) 18.dp else 12.dp)
                                 .clip(CircleShape)
                                 .background(
                                     if (index == 2) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(
@@ -97,7 +102,7 @@ fun ActivityCalendar() {
                     repeat(7) { _ ->
                         Box(
                             modifier = Modifier
-                                .size(14.dp)
+                                .size(12.dp)
                                 .clip(CircleShape)
                                 .background(
                                     MaterialTheme.colorScheme.onSurface.copy(

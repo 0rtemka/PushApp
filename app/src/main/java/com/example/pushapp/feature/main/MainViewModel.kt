@@ -10,12 +10,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
-sealed interface UserUiState {
-    data class Success(val user: User) : UserUiState
-    object Error : UserUiState
-    object Loading : UserUiState
-}
-
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val userRepository: UserRepository,

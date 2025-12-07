@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.pushapp.feature.calendar.ui.CalendarScreen
 import com.example.pushapp.feature.main.ui.MainScreen
 import com.example.pushapp.feature.profile.ui.ProfileScreen
 import com.example.pushapp.feature.stats.ui.StatsScreen
@@ -19,13 +20,21 @@ fun AppNavGraph(navController: NavHostController, modifier: Modifier = Modifier)
         modifier = modifier
     ) {
         composable(Screen.Home.route) {
-            MainScreen(onStartTrainingClick = { navController.navigate(Screen.TrainingPreparation.route) })
+            MainScreen(
+                onStartTrainingClick = { navController.navigate(Screen.TrainingPreparation.route) },
+                onCalendarClick = { navController.navigate(Screen.Calendar.route) })
         }
 
         composable(Screen.TrainingPreparation.route) {
             TrainingPreparationScreen(
                 onBackClick = { navController.popBackStack() },
                 onStartTrainingClick = { navController.navigate(Screen.Training.route) })
+        }
+
+        composable(Screen.Calendar.route) {
+            CalendarScreen(
+                onBackClick = { navController.popBackStack() },
+            )
         }
 
         composable(Screen.Stats.route) {

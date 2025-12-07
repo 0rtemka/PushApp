@@ -104,7 +104,7 @@ fun Share() {
         onClick = {},
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onSurface,
         ),
         modifier = Modifier
             .fillMaxWidth()
@@ -124,7 +124,7 @@ fun Share() {
                 painter = painterResource(R.drawable.share),
                 contentDescription = "Поделиться",
                 modifier = Modifier.size(26.dp),
-                tint = MaterialTheme.colorScheme.primary,
+                tint = MaterialTheme.colorScheme.onSurface,
             )
         }
     }

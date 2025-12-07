@@ -31,7 +31,7 @@ import com.example.pushapp.ui.theme.PushAppTheme
 @Composable
 fun SettingsMenu() {
     Column(
-        verticalArrangement = Arrangement.spacedBy(2.dp)
+        verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         Text(
             text = "Настройки",
@@ -56,7 +56,7 @@ fun SettingItem(icon: Painter, label: String) {
             containerColor = MaterialTheme.colorScheme.surface,
             contentColor = MaterialTheme.colorScheme.onSurface,
         ),
-        shape = RoundedCornerShape(4.dp),
+        shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth(),
         contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp)
@@ -65,18 +65,17 @@ fun SettingItem(icon: Painter, label: String) {
             modifier = Modifier.fillMaxWidth(),
         ) {
             Row(
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                horizontalArrangement = Arrangement.spacedBy(14.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
                     painter = icon,
                     contentDescription = label,
-                    modifier = Modifier.size(18.dp)
+                    modifier = Modifier.size(22.dp)
                 )
                 Text(
                     text = label,
                     style = MaterialTheme.typography.bodyLarge,
-                    fontFamily = PixelifySans
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 Icon(

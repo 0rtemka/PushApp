@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pushapp.R
+import com.example.pushapp.ui.components.TrainingStatItem
 import com.example.pushapp.ui.theme.Lora
 import com.example.pushapp.ui.theme.PushAppTheme
 
@@ -40,39 +41,10 @@ fun TrainingStats(
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            TrainingStat(icon = R.drawable.clock_icon, title = time, description = "минут")
-            TrainingStat(icon = R.drawable.lift_icon, title = pushUps, description = "отжиманий")
-            TrainingStat(icon = R.drawable.fire_icon, title = kcal, description = "ккал")
+            TrainingStatItem(icon = R.drawable.clock_icon, title = time, description = "минут")
+            TrainingStatItem(icon = R.drawable.lift_icon, title = pushUps, description = "отжиманий")
+            TrainingStatItem(icon = R.drawable.fire_icon, title = kcal, description = "ккал")
         }
-    }
-}
-
-@Composable
-fun TrainingStat(
-    icon: Int,
-    title: String,
-    description: String,
-) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Icon(
-            painter = painterResource(icon),
-            contentDescription = null,
-            modifier = Modifier.size(22.dp),
-            tint = MaterialTheme.colorScheme.primary,
-        )
-        Text(
-            text = title,
-            style = MaterialTheme.typography.headlineSmall,
-            fontFamily = Lora,
-        )
-        Text(
-            text = description,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-        )
     }
 }
 
