@@ -9,26 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-enum class WorkoutScreen { Preparation, Work, Rest, Finished }
-
-data class WorkoutState(
-    val totalTime: Int = 0,
-    val currentStepIndex: Int = 0,
-    val steps: List<WorkoutScreen> = emptyList(),
-    val currentScreen: WorkoutScreen = WorkoutScreen.Preparation,
-
-    val preparationTime: Int = 10,
-    val remainingPreparationTime: Int = 10,
-
-    val restTime: Int = 120,
-    val remainingRestTime: Int = 120,
-
-    val isPreparationTimerStopped: Boolean = false,
-
-    val pushUpsCount: Int = 16,
-    val totalPushUpsCount: Int = 0,
-)
-
 class TrainingViewModel : ViewModel() {
 
     private val _uiState = MutableStateFlow(WorkoutState())
@@ -178,3 +158,23 @@ class TrainingViewModel : ViewModel() {
         }
     }
 }
+
+enum class WorkoutScreen { Preparation, Work, Rest, Finished }
+
+data class WorkoutState(
+    val totalTime: Int = 0,
+    val currentStepIndex: Int = 0,
+    val steps: List<WorkoutScreen> = emptyList(),
+    val currentScreen: WorkoutScreen = WorkoutScreen.Preparation,
+
+    val preparationTime: Int = 10,
+    val remainingPreparationTime: Int = 10,
+
+    val restTime: Int = 120,
+    val remainingRestTime: Int = 120,
+
+    val isPreparationTimerStopped: Boolean = false,
+
+    val pushUpsCount: Int = 16,
+    val totalPushUpsCount: Int = 0,
+)

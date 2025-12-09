@@ -7,6 +7,8 @@ sealed class Screen(val route: String, val title: String?, val iconRes: Int?) {
     data object Stats : Screen("stats", "Статистика", R.drawable.stats_icon)
     data object TrainingPreparation : Screen("trainingPreparation", "Тренировка", R.drawable.lift_icon)
     data object Calendar: Screen("calendar", title = "Календарь", R.drawable.calendar_icon)
-    data object Profile : Screen("profile", "Профиль", R.drawable.user_icon)
     data object Training: Screen("training", "Тренировка", null)
+    data object Profile : Screen("profile", "Профиль", R.drawable.user_icon)
+    data object UserSettings: Screen("profile/user_settings", "Пользовательские настройки", null)
+    data object NotificationSettings: Screen("profile/notification_settings", "Уведомления", null)
 }

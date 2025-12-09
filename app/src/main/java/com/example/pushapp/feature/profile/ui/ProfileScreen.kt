@@ -15,12 +15,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pushapp.feature.profile.ui.components.AwardsSwiper
 import com.example.pushapp.feature.profile.ui.components.SettingsMenu
-import com.example.pushapp.ui.components.UserAvatar
 import com.example.pushapp.ui.components.TopAppBar
+import com.example.pushapp.ui.components.UserAvatar
 import com.example.pushapp.ui.theme.PushAppTheme
 
 @Composable
-fun ProfileScreen(modifier: Modifier = Modifier, onBackClick: () -> Unit = {}) {
+fun ProfileScreen(
+    modifier: Modifier = Modifier,
+    onUserSettingsClick: () -> Unit = {},
+    onNotificationSettingsClick: () -> Unit = {},
+    onBackClick: () -> Unit = {}
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -43,13 +48,16 @@ fun ProfileScreen(modifier: Modifier = Modifier, onBackClick: () -> Unit = {}) {
         ) {
             UserAvatar()
             AwardsSwiper()
-            SettingsMenu()
+            SettingsMenu(
+                onUserSettingsClick = onUserSettingsClick,
+                onNotificationSettingsClick = onNotificationSettingsClick,
+            )
         }
     }
 }
 
 @Composable
-@Preview(showSystemUi = true, name = "Light mode", apiLevel = 34)
+@Preview(showSystemUi = true, name = "Light mode")
 fun ProfileScreenLightModePreview() {
     PushAppTheme(darkTheme = false, dynamicColor = false) {
         ProfileScreen()
@@ -57,7 +65,7 @@ fun ProfileScreenLightModePreview() {
 }
 
 @Composable
-@Preview(showSystemUi = true, name = "Dark mode", apiLevel = 34)
+@Preview(showSystemUi = true, name = "Dark mode")
 fun ProfileScreenDarkModePreview() {
     PushAppTheme(darkTheme = true, dynamicColor = false) {
         ProfileScreen()

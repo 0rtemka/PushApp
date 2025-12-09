@@ -1,6 +1,5 @@
 package com.example.pushapp.feature.profile.ui.components
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,7 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,7 +27,11 @@ import com.example.pushapp.ui.theme.PixelifySans
 import com.example.pushapp.ui.theme.PushAppTheme
 
 @Composable
-fun SettingsMenu() {
+fun SettingsMenu(
+    onUserSettingsClick: () -> Unit = {},
+    onGeneralSettingsClick: () -> Unit = {},
+    onNotificationSettingsClick: () -> Unit = {},
+) {
     Column(
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
@@ -40,18 +42,28 @@ fun SettingsMenu() {
             modifier = Modifier.padding(bottom = 14.dp),
             color = MaterialTheme.colorScheme.onBackground
         )
-        SettingItem(painterResource(R.drawable.user_icon), "Персональные")
-        SettingItem(painterResource(R.drawable.settings_icon), "Общие")
-        SettingItem(painterResource(R.drawable.message_icon), "Уведомления")
+        SettingItem(
+            icon = painterResource(R.drawable.user_icon),
+            label = "Персональные",
+            onClick = onUserSettingsClick
+        )
+        SettingItem(
+            icon = painterResource(R.drawable.settings_icon),
+            label = "Общие",
+            onClick = onGeneralSettingsClick
+        )
+        SettingItem(
+            icon = painterResource(R.drawable.message_icon),
+            label = "Уведомления",
+            onClick = onNotificationSettingsClick
+        )
     }
 }
 
 @Composable
-fun SettingItem(icon: Painter, label: String) {
-    val context = LocalContext.current
-
+fun SettingItem(icon: Painter, label: String, onClick: () -> Unit = {}) {
     Button(
-        onClick = { Toast.makeText(context, "настройки", Toast.LENGTH_SHORT).show() },
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.surface,
             contentColor = MaterialTheme.colorScheme.onSurface,
@@ -90,7 +102,7 @@ fun SettingItem(icon: Painter, label: String) {
 }
 
 @Composable
-@Preview(showBackground = true, apiLevel = 34, name = "LightMode")
+@Preview(showBackground = true, name = "LightMode")
 fun SettingsMenuLightModePreview() {
     PushAppTheme(darkTheme = false, dynamicColor = false) {
         SettingsMenu()
@@ -98,7 +110,7 @@ fun SettingsMenuLightModePreview() {
 }
 
 @Composable
-@Preview(showBackground = true, apiLevel = 34, name = "DarkMode")
+@Preview(showBackground = true, name = "DarkMode")
 fun SettingsMenuDarkModePreview() {
     PushAppTheme(darkTheme = true, dynamicColor = false) {
         SettingsMenu()
